@@ -241,7 +241,7 @@ $(document).ready(function () {
                     var cardtemplate = `
             <div class="row justify-content-center">
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-red">
-            <h2 class="mb-2">Cases</h2>
+            <h2 class="mb-2">Total Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_cases}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-green">
@@ -249,7 +249,7 @@ $(document).ready(function () {
             <p style="font-size:25px;">${data["countryitems"][0][i].total_recovered}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-gray">
-            <h2 class="mb-2">Unresolved</h2>
+            <h2 class="mb-2">Unresolved Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_unresolved}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-brown">
@@ -265,11 +265,11 @@ $(document).ready(function () {
             <p style="font-size:25px;">${data["countryitems"][0][i].total_new_deaths_today}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-blue">
-            <h2 class="mb-2">Active</h2>
+            <h2 class="mb-2">Active Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_active_cases}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-pink">
-            <h2 class="mb-2">Serious</h2>
+            <h2 class="mb-2">Serious Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_serious_cases}</p>
             </div>
             </div>
@@ -282,6 +282,7 @@ $(document).ready(function () {
 
         function leave(country) {
             country = 'World';
+            
         }
     });
 });
