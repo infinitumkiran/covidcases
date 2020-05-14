@@ -37,10 +37,10 @@
     var data;
     var a = ''
     $(document).ready(function () {
-      $.getJSON('https://api.thevirustracker.com/free-api?countryTotals=ALL', function (d) {
-        data = d;
-
+      $.getJSON('https://api.thevirustracker.com/free-api?countryTotals=ALL', function (j) {
+        data = j;
       });
+     
       var rotationDelay = 3000;
       // scale of the globe (not the canvas element)
       var scaleFactor = 0.9;
@@ -261,6 +261,7 @@
 
       function enter(country) {
         $("#wrapper").empty();
+
         var country = countryList.find(function (c) {
           return parseInt(c.id, 10) === parseInt(country.id, 10)
         });
@@ -316,7 +317,7 @@
       }
 
       function leave(country) {
-        current.text('');
+        country = 'World';
       }
     });
   </script>
