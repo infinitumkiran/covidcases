@@ -1,0 +1,71 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-image: url("images/back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#globe {
+  cursor: move;  
+}
+
+#current {
+  position: absolute;
+  color: white;
+  font-family: sans-serif;
+  margin-left: 4%;
+  margin-top: 4%;
+}
+.p{
+  font-size: 114px;
+}
+.bg-brown
+{
+  border: 2px solid brown;
+  background-color:brown;
+  color:white;
+}
+.bg-gray
+{
+  border: 2px solid gray;
+  background-color:gray;
+  color:white;
+}
+.bg-green
+{
+  border: 2px solid green;
+  background-color:green;
+  color:white;
+}
+.bg-blue
+{
+  border: 2px solid blue;
+  background-color:blue;
+  color:white;
+}
+.bg-pink
+{
+  border: 2px solid pink;
+  background-color:pink;
+  color:white;
+}
+.bg-red
+{
+  border: 2px solid red;
+  background-color:red;
+  color:white;
+}
+.bg-purple
+{
+  border: 2px solid purple;
+  background-color:purple;
+  color:white;
+}
+.bg-yellow
+{
+  border: 2px solid yellow;
+  background-color:yellow;
+  color:white;
+}
