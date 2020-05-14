@@ -8,6 +8,10 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 #globe {
   cursor: move;
