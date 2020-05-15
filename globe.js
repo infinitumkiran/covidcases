@@ -242,34 +242,18 @@ $(document).ready(function () {
             <div class="row justify-content-center">
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-red">
             <h2 class="mb-2">Total Cases</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_cases}</p>
+            <p style="font-size:25px;">${data["countryitems"][0][i].total_new_cases_today}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-green">
             <h2 class="mb-2">Recovered</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_recovered}</p>
-            </div>
-            <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-gray">
-            <h2 class="mb-2">Unresolved Cases</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_unresolved}</p>
+            <p style="font-size:25px;">${data["countryitems"][0][i].total_active_cases}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-brown">
             <h2 class="mb-2">Total Deaths</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_deaths}</p>
-            </div>
-            <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-purple">
-            <h2 class="mb-2">New Cases</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_new_cases_today}</p>
-            </div>
-            <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-yellow">
-            <h2 class="mb-2">New Deaths</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_new_deaths_today}</p>
             </div>
             <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-blue">
             <h2 class="mb-2">Active Cases</h2>
-            <p style="font-size:25px;">${data["countryitems"][0][i].total_active_cases}</p>
-            </div>
-            <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-pink">
-            <h2 class="mb-2">Serious Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_serious_cases}</p>
             </div>
             </div>
