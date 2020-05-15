@@ -256,6 +256,10 @@ $(document).ready(function () {
             <h2 class="mb-2">Active Cases</h2>
             <p style="font-size:25px;">${data["countryitems"][0][i].total_serious_cases}</p>
             </div>
+            <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-yellow">
+            <h2 class="mb-2">New Deaths</h2>
+            <p style="font-size:25px;">${data["countryitems"][0][i].total_deaths}</p>
+            </div>
             </div>
             `;
                     $("#wrapper").append(cardtemplate);
