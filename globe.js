@@ -284,7 +284,7 @@ let Dust = function(canvas, wrapper) {
     this.canvas = null;
     this.context = null;
     this.maxSize = (window.devicePixelRatio > 1) ? 4 : 8;
-    this.particleNumber = 260 ;
+    this.particleNumber = 300 ;
     this.xMomentum = 0;
     this.particleColors = [
       '#D21F3C',
