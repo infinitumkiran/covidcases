@@ -173,6 +173,7 @@ $(document).ready(function () {
             var c = getCountry(this);
             if (!c) {
                 if (currentCountry) {
+                    $('#wrapper').empty();
                     leave(currentCountry);
                     render();
                 }
@@ -238,18 +239,19 @@ $(document).ready(function () {
                 if (b == a) {
                     console.log(data["countryitems"][0][i].title);
                     console.log(country.title);
-                    var cardtemplate = '<div data-backdrop="false" class="modal" style="z-index:99999;" id="MyModal"> <div class="modal-dialog" > <div class="modal-content"> <div class="modal-body"> <div class="row "> <div class="card "> <h2 class="mb-2">Total Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_cases + '</p></div><div class="card   "> <h2 class="mb-2">Recovered</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_recovered + '</p></div><div class="card   "> <h2 class="mb-2">Unresolved Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_unresolved + '</p></div><div class="card    -brown"> <h2 class="mb-2">Total Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_deaths + '</p></div><div class="card   "> <h2 class="mb-2">New Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_cases_today + '</p></div><div class="card   "> <h2 class="mb-2">New Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_deaths_today + '</p></div><div class="card   "> <h2 class="mb-2">Active Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_active_cases + '</p></div><div class="card   "> <h2 class="mb-2">Serious Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_serious_cases + '</p></div></div></div><div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div>';
+                    var cardtemplate = '<div data-backdrop="false" class="fade modal" style="position:relative;right:0;top:0; z-index:0;" id="MyModal"> <div class="modal-dialog" > <div class="modal-content"> <div class="modal-body"> <div class="row "> <div class="card "> <h2 class="mb-2">Total Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_cases + '</p></div><div class="card   "> <h2 class="mb-2">Recovered</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_recovered + '</p></div><div class="card   "> <h2 class="mb-2">Unresolved Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_unresolved + '</p></div><div class="card    -brown"> <h2 class="mb-2">Total Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_deaths + '</p></div><div class="card   "> <h2 class="mb-2">New Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_cases_today + '</p></div><div class="card   "> <h2 class="mb-2">New Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_deaths_today + '</p></div><div class="card   "> <h2 class="mb-2">Active Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_active_cases + '</p></div><div class="card   "> <h2 class="mb-2">Serious Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_serious_cases + '</p></div></div></div><div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div>';
 
                     cardtemplate += '<script>$("Document").ready(function(){$(".modal").modal();$("#MyModal").modal("show");});</script>';
                     $("#wrapper").append(cardtemplate);
                     delete(cardtemplate);
+
                 }
             }
         }
 
         function leave(country) {
-            country = 'World';
-            $('#MyModal').modal('fade');
+            country = '';
+            delete(cardtemplate);
         }
     });
 });
