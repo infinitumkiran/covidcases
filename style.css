@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 768px) {
@@ -102,11 +102,12 @@ canvas {
 }
 
 .dust-wrap {
+
   position: relative;
   -webkit-perspective: 3px;
   perspective: 3px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
   height: 100vh;
   -ms-scroll-snap-type: mandatory;
   scroll-snap-type: mandatory;
