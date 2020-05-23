@@ -6,11 +6,19 @@
   <meta name="viewport" content="width=device-width,intial-scale=1.0">
   <title>COVID-19 globe</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
   <script src="https://d3js.org/d3-geo.v1.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+  <!-- BS JavaScript -->
   <script
     src="https://bl.ocks.org/mbostock/raw/7ea1dde508cec6d2d95306f92642bc42/6aac691494f752142a67cc43c51a0fd09896dbd4/versor.js">
   </script>
@@ -20,34 +28,35 @@
 <body>
   <div class="dust-wrap">
     <canvas id="canvas"></canvas>
-    
+
     <div class="content-wrap">
-      
-  <h1 class="text-center " style="color:whitesmoke ;margin-top: 10px;">
-    COVID-19
-  </h1>
-  <h6 class="text-center" style="color:whitesmoke ;margin-top: 10px;">Click on a country or territory to see cases, deaths, and recoveries.</h6>
-  <h2 id="current"></h2>
-  
+
+      <h1 class="text-center " style="color:whitesmoke ;margin-top: 10px;">
+        COVID-19
+      </h1>
+      <h6 class="text-center" style="color:whitesmoke ;margin-top: 10px;">Click on a country or territory to see cases,
+        deaths, and recoveries.</h6>
+      <h2 id="current"></h2>
+
     </div>
-    
+
     <div class="content-wrap">
       <canvas id="globe"></canvas>
     </div>
-     
-      <div id="spl">
-        <div class="container">
-          <div id="wrapper">
-      
-          </div>
+
+    <div id="spl">
+      <div class="container">
+        <div id="wrapper">
+
         </div>
+      </div>
     </div>
-   
-      <canvas id="canvas-two"></canvas>
+
+    <canvas id="canvas-two"></canvas>
   </div>
-  
- 
+
   <script src="globe.js"></script>
+
 </body>
 
 </html>

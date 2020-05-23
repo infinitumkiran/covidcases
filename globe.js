@@ -238,42 +238,9 @@ $(document).ready(function () {
                 if (b == a) {
                     console.log(data["countryitems"][0][i].title);
                     console.log(country.title);
-                    var cardtemplate = `
-                    <div class="row justify-content-center">
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-red">
-                    <h2 class="mb-2">Total Cases</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_cases}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-green">
-                    <h2 class="mb-2">Recovered</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_recovered}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-gray">
-                    <h2 class="mb-2">Unresolved Cases</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_unresolved}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-brown">
-                    <h2 class="mb-2">Total Deaths</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_deaths}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-purple">
-                    <h2 class="mb-2">New Cases</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_new_cases_today}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-yellow">
-                    <h2 class="mb-2">New Deaths</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_new_deaths_today}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-blue">
-                    <h2 class="mb-2">Active Cases</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_active_cases}</p>
-                    </div>
-                    <div class="card pl-3 pr-5 py-2 mx-2 my-2 col-md-3 bg-pink">
-                    <h2 class="mb-2">Serious Cases</h2>
-                    <p style="font-size:25px;">${data["countryitems"][0][i].total_serious_cases}</p>
-                    </div>
-                    </div>
-                    `;
+                    var cardtemplate = '<div data-backdrop="false" class="modal" style="z-index:99999;" id="MyModal"> <div class="modal-dialog" > <div class="modal-content"> <div class="modal-body"> <div class="row "> <div class="card "> <h2 class="mb-2">Total Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_cases + '</p></div><div class="card   "> <h2 class="mb-2">Recovered</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_recovered + '</p></div><div class="card   "> <h2 class="mb-2">Unresolved Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_unresolved + '</p></div><div class="card    -brown"> <h2 class="mb-2">Total Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_deaths + '</p></div><div class="card   "> <h2 class="mb-2">New Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_cases_today + '</p></div><div class="card   "> <h2 class="mb-2">New Deaths</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_new_deaths_today + '</p></div><div class="card   "> <h2 class="mb-2">Active Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_active_cases + '</p></div><div class="card   "> <h2 class="mb-2">Serious Cases</h2> <p style="font-size:25px;">' + data["countryitems"][0][i].total_serious_cases + '</p></div></div></div><div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div>';
+
+                    cardtemplate += '<script>$("Document").ready(function(){$(".modal").modal();$("#MyModal").modal("show");});</script>';
                     $("#wrapper").append(cardtemplate);
                     delete(cardtemplate);
                 }
@@ -282,166 +249,166 @@ $(document).ready(function () {
 
         function leave(country) {
             country = 'World';
-            
+            $('#MyModal').modal('fade');
         }
     });
 });
 
 
 
-let Dust = function(canvas, wrapper) {
+let Dust = function (canvas, wrapper) {
     this.canvasSelector = canvas;
     this.blur = blur
-  
+
     this.canvas = null;
     this.context = null;
     this.maxSize = (window.devicePixelRatio > 1) ? 4 : 8;
-    this.particleNumber = 300 ;
+    this.particleNumber = 300;
     this.xMomentum = 0;
     this.particleColors = [
-      '#D21F3C',
-      '#BF0A30',
-      '#B80F0A',
-      '#8D021F'
+        '#D21F3C',
+        '#BF0A30',
+        '#B80F0A',
+        '#8D021F'
     ]
-  
+
     this.targetWidth = window.innerWidth;
     this.targetHeight = window.innerHeight;
-  
+
     this.particles = [];
-  
+
     this.random = function (mult) {
-      return Math.ceil(Math.random() * mult);
+        return Math.ceil(Math.random() * mult);
     }
-  
-    this.makeParticle = function(startx = null, starty = null) {
+
+    this.makeParticle = function (startx = null, starty = null) {
         let self = this;
-  
+
         let particle = {
-          x: startx ? startx : self.random(self.targetWidth),
-          y: starty ? starty : self.random(self.targetHeight),
-          xv: Math.random() * .5 - .25,
-          yv: Math.random() * .25,
-          color: self.particleColors[Math.floor(Math.random() * self.particleColors.length)],
-          mass: null,
-          sides: self.random(5),
-          sideArray: [],
-  
-  
-          makeShape: function() {
-            for (let j = 0; j < this.sides; j++) {
-              let side = {
-                x: self.random(self.maxSize),
-                y: self.random(self.maxSize)
-              }
-              this.sideArray.push(side)
-            }
-  
-            this.mass = (this.sideArray.length / self.maxSize)
-            this.yv = this.yv * this.mass
-          },
-  
-          draw: function() {
-            self.ctx.moveTo(this.x, this.y);
-            self.ctx.beginPath();
-  
-            for (let i = 0; i < this.sideArray.length; i++) {
-              let side = this.sideArray[i];
-              self.ctx.lineTo(side.x + this.x, side.y + this.y)
-            }
-  
-            self.ctx.closePath();
-            self.ctx.fill();
-          },
+            x: startx ? startx : self.random(self.targetWidth),
+            y: starty ? starty : self.random(self.targetHeight),
+            xv: Math.random() * .5 - .25,
+            yv: Math.random() * .25,
+            color: self.particleColors[Math.floor(Math.random() * self.particleColors.length)],
+            mass: null,
+            sides: self.random(5),
+            sideArray: [],
+
+
+            makeShape: function () {
+                for (let j = 0; j < this.sides; j++) {
+                    let side = {
+                        x: self.random(self.maxSize),
+                        y: self.random(self.maxSize)
+                    }
+                    this.sideArray.push(side)
+                }
+
+                this.mass = (this.sideArray.length / self.maxSize)
+                this.yv = this.yv * this.mass
+            },
+
+            draw: function () {
+                self.ctx.moveTo(this.x, this.y);
+                self.ctx.beginPath();
+
+                for (let i = 0; i < this.sideArray.length; i++) {
+                    let side = this.sideArray[i];
+                    self.ctx.lineTo(side.x + this.x, side.y + this.y)
+                }
+
+                self.ctx.closePath();
+                self.ctx.fill();
+            },
         }
-  
+
         particle.makeShape();
-  
+
         this.particles.push(particle);
     }
-  
-  
-    this.animate = function() {
-      let self = this;
-      // this is to determine if the page is scrolled to calculate the location of particles
-      let scrollPos = document.querySelector(wrapper).scrollTop
-  
-      // setting mouse momentum, but giving it a maximum value so you can't accelerate a particle to over 9000
-      self.xMomentum = ((this.mouseX - this.mousePrevX) * (1/15));
-      self.yMomentum = ((this.mouseY - this.mousePrevY) * (1/15));
-  
-      self.mousePrevX = self.mouseX;
-      self.mousePrevY = self.mouseY;
-  
-      self.ctx.clearRect(0, 0, self.targetWidth, self.targetHeight);
-  
-      for (let i = 0; i < self.particles.length; i++) {
-        let particle = self.particles[i]
-  
-        // setting momentum on particles within 50px of cursor
-        if ((particle.y > (self.mouseY + scrollPos - 25) && particle.y < (self.mouseY + scrollPos + 25)) && (particle.x > self.mouseX && particle.x <= self.mouseX + 5)) {
-          particle.xv = particle.xv + ((isNaN(this.xMomentum) ? 0 : self.xMomentum) * particle.mass)
-          particle.yv = particle.yv + ((isNaN(this.yMomentum) ? 0 : self.yMomentum) * particle.mass)
+
+
+    this.animate = function () {
+        let self = this;
+        // this is to determine if the page is scrolled to calculate the location of particles
+        let scrollPos = document.querySelector(wrapper).scrollTop
+
+        // setting mouse momentum, but giving it a maximum value so you can't accelerate a particle to over 9000
+        self.xMomentum = ((this.mouseX - this.mousePrevX) * (1 / 15));
+        self.yMomentum = ((this.mouseY - this.mousePrevY) * (1 / 15));
+
+        self.mousePrevX = self.mouseX;
+        self.mousePrevY = self.mouseY;
+
+        self.ctx.clearRect(0, 0, self.targetWidth, self.targetHeight);
+
+        for (let i = 0; i < self.particles.length; i++) {
+            let particle = self.particles[i]
+
+            // setting momentum on particles within 50px of cursor
+            if ((particle.y > (self.mouseY + scrollPos - 25) && particle.y < (self.mouseY + scrollPos + 25)) && (particle.x > self.mouseX && particle.x <= self.mouseX + 5)) {
+                particle.xv = particle.xv + ((isNaN(this.xMomentum) ? 0 : self.xMomentum) * particle.mass)
+                particle.yv = particle.yv + ((isNaN(this.yMomentum) ? 0 : self.yMomentum) * particle.mass)
+            }
+
+            // takes particle's mass into account determining its velocity
+            particle.x = particle.x + (particle.xv * particle.mass);
+            particle.y = particle.y + (particle.yv * particle.mass);
+
+            // if a particle is moving fast to the left or right, slow it down
+            // combined with the above, this gives a good impression of gravity pulling the particle's lateral momentum downward
+            if (particle.xv > 1) {
+                particle.xv -= 0.25;
+            } else if (particle.xv < -1) {
+                particle.xv += 0.25
+            }
+
+            // "heavier" objects fall faster
+            if (particle.yv < .25) {
+                particle.yv += (0.01 * particle.mass);
+            }
+
+
+            self.ctx.fillStyle = particle.color;
+
+            // if the particle is out of the height or width of the document, delete it and spawn a new one just out of screen
+            if (particle.x > self.targetWidth || particle.x < -100 || particle.y > self.targetHeight || particle.y < -100) {
+                let index = self.particles.indexOf(particle)
+                let startX = Math.floor(Math.random() * window.innerWidth) - 100;
+                let startY = Math.floor(Math.random() * -100);
+                self.particles.splice(index, 1)
+                self.makeParticle(startX, startY);
+            }
+            particle.draw()
         }
-  
-        // takes particle's mass into account determining its velocity
-        particle.x = particle.x + (particle.xv * particle.mass);
-        particle.y = particle.y + (particle.yv * particle.mass);
-  
-        // if a particle is moving fast to the left or right, slow it down
-        // combined with the above, this gives a good impression of gravity pulling the particle's lateral momentum downward
-        if (particle.xv > 1) {
-          particle.xv -= 0.25;
-        } else if (particle.xv < -1) {
-          particle.xv += 0.25
-        }
-  
-        // "heavier" objects fall faster
-        if (particle.yv < .25) {
-          particle.yv += (0.01 * particle.mass);
-        }
-  
-  
-        self.ctx.fillStyle = particle.color;
-  
-        // if the particle is out of the height or width of the document, delete it and spawn a new one just out of screen
-        if (particle.x > self.targetWidth || particle.x < -100 || particle.y > self.targetHeight || particle.y < -100) {
-          let index = self.particles.indexOf(particle)
-          let startX = Math.floor(Math.random() * window.innerWidth) - 100;
-          let startY = Math.floor(Math.random() * - 100);
-          self.particles.splice(index, 1)
-          self.makeParticle(startX, startY);
-        }
-        particle.draw()
-      }
-  
-      window.requestAnimationFrame(self.animate);
+
+        window.requestAnimationFrame(self.animate);
     }.bind(this);
-  
+
     this.init = function () {
-      this.canvas = document.querySelector(this.canvasSelector);
-      this.canvas.width = this.targetWidth;
-      this.canvas.height = this.targetHeight;
-  
-      this.ctx = this.canvas.getContext('2d');
-      this.ctx.lineWidth = 1;
-  
-  
-      for (let i = 0; i < this.particleNumber; i++) {
-        this.makeParticle();
-      }
-  
-      window.addEventListener('mousemove', (e) => {
-        this.mouseX = e.clientX;
-        this.mouseY = e.clientY;
-  
-      })
-  
-      window.requestAnimationFrame(this.animate);
+        this.canvas = document.querySelector(this.canvasSelector);
+        this.canvas.width = this.targetWidth;
+        this.canvas.height = this.targetHeight;
+
+        this.ctx = this.canvas.getContext('2d');
+        this.ctx.lineWidth = 1;
+
+
+        for (let i = 0; i < this.particleNumber; i++) {
+            this.makeParticle();
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            this.mouseX = e.clientX;
+            this.mouseY = e.clientY;
+
+        })
+
+        window.requestAnimationFrame(this.animate);
     }
-  
+
     this.init();
-  }
-  
-  let dustDemo = new Dust('#canvas', '.dust-wrap');
-  let dustDemoTwo = new Dust('#canvas-two', '.dust-wrap');
+}
+
+let dustDemo = new Dust('#canvas', '.dust-wrap');
+let dustDemoTwo = new Dust('#canvas-two', '.dust-wrap');
