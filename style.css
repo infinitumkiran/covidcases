@@ -95,7 +95,10 @@ body {
   background-color: yellow;
   color: white;
 }
-
+hr.rounded {
+  border-top: 2px solid white;
+  border-radius: 5px;
+}
 
 canvas {
   position: absolute;

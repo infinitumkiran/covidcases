@@ -231,7 +231,7 @@ $(document).ready(function () {
                 return parseInt(c.id, 10) === parseInt(country.id, 10)
             });
 
-            current.text(country && country.name || '');
+            // current.text(country && country.name || '');
             a = country.name;
             for (var i in data["countryitems"][0]) {
                 var b = data["countryitems"][0][i].title;
@@ -239,9 +239,9 @@ $(document).ready(function () {
                 if (b == a) {
                     console.log(data["countryitems"][0][i].title);
                     console.log(country.title);
-                    var cardtemplate = '<div data-backdrop="false" class="fade modal" style="position:relative;right:0;top:0;z-index:2;color:#000" id="MyModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="row"><div class="card bg-red"><h1 class="card-title">'+country.name +'</h1><h3>Overall Situation</h3><p style="font-size:25px">Total Cases : ' + data["countryitems"][0][i].total_cases + '</p><p style="font-size:25px">Recovered : ' + data["countryitems"][0][i].total_recovered + '</p><p style="font-size:25px">Total Deaths : ' + data["countryitems"][0][i].total_deaths + '</p><h3>Todays Situation</h3><p style="font-size:25px">New Cases : ' + data["countryitems"][0][i].total_new_cases_today + '</p><p style="font-size:25px">New Deaths : ' + data["countryitems"][0][i].total_new_deaths_today + '</p><p style="font-size:25px">Active Cases : ' + data["countryitems"][0][i].total_active_cases + '</p></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
+                    var cardtemplate = '<div data-backdrop="false" class="fade modal" style="position:relative;right:0;top:0;z-index:2;color:#000" id="MyModal-sm"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="row"><div class="card bg-red"><h1 class="card-title" style="text-align:center;margin-bottom:0px;">'+country.name +'</h1><hr class="rounded"><h3>Overall Situation</h3><p style="font-size:25px">Total Cases : ' + data["countryitems"][0][i].total_cases + '</p><p style="font-size:25px">Recovered : ' + data["countryitems"][0][i].total_recovered + '</p><p style="font-size:25px">Total Deaths : ' + data["countryitems"][0][i].total_deaths + '</p><h3>Todays Situation</h3><p style="font-size:25px">New Cases : ' + data["countryitems"][0][i].total_new_cases_today + '</p><p style="font-size:25px">New Deaths : ' + data["countryitems"][0][i].total_new_deaths_today + '</p><p style="font-size:25px">Active Cases : ' + data["countryitems"][0][i].total_active_cases + '</p></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
 
-                    cardtemplate += '<script>$("Document").ready(function(){$(".modal").modal();$("#MyModal").modal("show");});</script>';
+                    cardtemplate += '<script>$("Document").ready(function(){$(".modal-sm").modal();$("#MyModal-sm").modal("show");});</script>';
                     $("#wrapper").append(cardtemplate);
                     delete(cardtemplate);
 
