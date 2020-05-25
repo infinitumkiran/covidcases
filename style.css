@@ -19,6 +19,7 @@ body {
  
 }
 
+
 @media only screen and (max-width: 768px) {
 
   /* For mobile phones: */
@@ -55,9 +56,6 @@ body {
   margin-top: 4%;
 }
 
-.p {
-  font-size: 114px;
-}
 
 
 .bg-red {
@@ -116,7 +114,7 @@ canvas {
 
 
 #footer {
-  bottom: 0;
+  bottom: 30px;
   width: 100%;
 }
 #footer, #header {
