@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         function scale() {
             width = document.documentElement.clientWidth;
-            height = document.documentElement.clientHeight * 0.7;
+            height = document.documentElement.clientHeight * 0.6;
             canvas.attr('width', width).attr('height', height);
             projection
                 .scale((scaleFactor * Math.min(width, height)) / 2)
@@ -425,7 +425,7 @@ $(document).ready(function () {
         world = x;
     }).then(function () {
         console.log(world.cases);
-        var footertemplate='<div id="footer" style="display:block"><p><span class="tiny">TOTAL COUNTS (as of <span class="timestamp">a minute ago</span>)</span><br>ACTIVE:&nbsp;<span id="total-cases">'+world.active+'</span><span id="total-count" class="tiny">/'+world.cases+'</span><span class="muted disappear">&nbsp;</span> &nbsp;DEATHS:&nbsp;<span id="total-deaths">'+world.deaths+'</span> <span class="tooltip"><span class="muted disappear">&nbsp;</span> RECOVERIES:&nbsp;<span id="total-recovered">'+world.recovered+'</span></span></span> &nbsp;RECOVERIES:&nbsp;<span id="total-recovered">'+world.recovered+'</span></span></p></div>';
+        var footertemplate='<div id="footer" style="display:block"><p><span class="tiny">TOTAL COUNTS (as of <span class="timestamp">a minute ago</span>)</span><br>ACTIVE:&nbsp;<span id="total-cases" style="color:orange;">'+world.active+'</span><span id="total-count" class="tiny">/'+world.cases+'</span><span class="muted disappear">&nbsp;</span> &nbsp;DEATHS:&nbsp;<span id="total-deaths" style="color:red;">'+world.deaths+'</span> <span class="tooltip"><span class="muted disappear">&nbsp;</span> RECOVERIES:&nbsp;<span id="total-recovered">'+world.recovered+'</span></span></span> &nbsp;RECOVERIES:&nbsp;<span id="total-recovered" style="color:lightgreen;">'+world.recovered+'</span></span></p><button id="more-info-button" data-micromodal-trigger="more-info">Creators</button></div>';
         $('#bottom').append(footertemplate);
         delete(footertemplate);
     });
