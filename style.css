@@ -14,6 +14,12 @@ body {
   left: 20px;
   z-index: 15;
 }
+#creator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 15;
+}
 #leaderboard img{
   width: 36px;
  
