@@ -119,10 +119,18 @@ canvas {
 }
 
 
+@media only screen and (min-width: 800px) {
 #footer {
-  bottom: 50px;
+  bottom: 20px;
   width: 100%;
 }
+}
+@media only screen and (max-width: 768px) {
+  #footer {
+    bottom: 60px;
+    width: 100%;
+  }
+  }
 #footer, #header {
   position: absolute;
   text-align: center;
