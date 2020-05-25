@@ -2,11 +2,21 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-image: url("images/back.jpg");
+  background-image: url("assets/back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   overflow: hidden;
+}
+#leaderboard {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 15;
+}
+#leaderboard img{
+  width: 36px;
+ 
 }
 
 @media only screen and (max-width: 768px) {
@@ -31,6 +41,7 @@ body {
 
 
 #globe {
+  overflow: visible;
   position: center;
   z-index: 2;
   cursor: move;
@@ -101,4 +112,16 @@ canvas {
   top: 0;
   -webkit-transform: translateZ(0px);
   transform: translateZ(0px);
+}
+
+
+#footer {
+  bottom: 0;
+  width: 100%;
+}
+#footer, #header {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  z-index: 10;
 }
