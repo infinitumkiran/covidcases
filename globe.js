@@ -1,7 +1,7 @@
 var data;
 var a = ''
 $(document).ready(function () {
-    $.getJSON('https://api.thevirustracker.com/free-api?countryTotals=ALL', function (j) {
+    $.getJSON('https://coronavirus-19-api.herokuapp.com/countries/', function (j) {
         data = j;
     }).then(function () {
 
@@ -26,9 +26,11 @@ $(document).ready(function () {
         //
         // Handler
         //
-
-        // var data = fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
-
+        $.getJSON('https://coronavirus-19-api.herokuapp.com/countries/', function (j) {
+        data = j;
+    }).then(function () {
+        console.log(data[0].country);
+    })
 
         //
         // Variables
@@ -233,13 +235,14 @@ $(document).ready(function () {
 
             // current.text(country && country.name || '');
             a = country.name;
-            for (var i in data["countryitems"][0]) {
-                var b = data["countryitems"][0][i].title;
-                // console.log(data["countryitems"][0][i].title);
+            for (var i in data) {
+                var b = data[i].country;
+                console.log(b);
                 if (b == a) {
-                    console.log(data["countryitems"][0][i].title);
+                    console.log(b);
                     console.log(country.name);
-                    var cardtemplate = '<div data-backdrop="false" class="fade modal" style="position:relative;right:0;bottom:0;z-index:2;" id="MyModal-sm"><div class="modal-dialog"><div class="modal-content" style="background-color:black;"><div class="modal-body"style="background-color:black;"><div class="row"><div class="card bg-red"><h1 class="card-title" style="text-align:center;margin-bottom:0px;">'+country.name +'</h1><hr class="rounded"><p>Total Cases : ' + data["countryitems"][0][i].total_cases + '</p><p>Recovered : ' + data["countryitems"][0][i].total_recovered + '</p><p>Total Deaths : ' + data["countryitems"][0][i].total_deaths + '</p><p>New Cases : ' + data["countryitems"][0][i].total_new_cases_today + '</p><p>New Deaths : ' + data["countryitems"][0][i].total_new_deaths_today + '</p><p>Active Cases : ' + data["countryitems"][0][i].total_active_cases + '</p></div></div></div></div></div></div>';
+                    console.log(data[i].cases);
+                    var cardtemplate = '<div data-backdrop="false" class="fade modal" style="position:relative;right:0;bottom:0;z-index:2;" id="MyModal-sm"><div class="modal-dialog"><div class="modal-content" style="background-color:black;"><div class="modal-body"style="background-color:black;"><div class="row"><div class="card bg-red"><h1 class="card-title" style="text-align:center;margin-bottom:0px;">'+country.name +'</h1><hr class="rounded"><p>Total Cases : ' + data[i].cases + '</p><p>Recovered : ' + data[i].recovered + '</p><p>Total Deaths : ' + data[i].deaths + '</p><p>New Cases : ' + data[i].todayCases + '</p><p>Active Cases : ' + data[i].active + '</p></div></div></div></div></div></div>';
 
                     cardtemplate += '<script>$("Document").ready(function(){$(".modal-sm").modal();$("#MyModal-sm").modal("show");});</script>';
                     $("#wrapper").append(cardtemplate);
